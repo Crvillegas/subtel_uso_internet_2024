@@ -57,6 +57,38 @@ Este dataset fue utilizado para la construcción del panel de analítica.
 - Se incorporaron filtros para permitir la exploración por región y grupo etario.
 - Se evitó complejidad innecesaria, enfocándose en comunicar insights de forma clara.
 
+Transformación de Regiones en Power BI
+
+Durante la construcción del dashboard en Power BI se realizó la creación de la columna region_desc usando la función SWITCH para asignar nombres de regiones a los códigos de región (COD_REGION):
+
+Region_desc =
+SWITCH(
+    TRUE(),
+    'Tabla'[COD_REGION] = 1, "Tarapacá",
+    'Tabla'[COD_REGION] = 2, "Antofagasta",
+    'Tabla'[COD_REGION] = 3, "Atacama",
+    'Tabla'[COD_REGION] = 4, "Coquimbo",
+    'Tabla'[COD_REGION] = 5, "Valparaíso",
+    'Tabla'[COD_REGION] = 6, "O'Higgins",
+    'Tabla'[COD_REGION] = 7, "Maule",
+    'Tabla'[COD_REGION] = 8, "Biobío",
+    'Tabla'[COD_REGION] = 9, "La Araucanía",
+    'Tabla'[COD_REGION] = 10, "Los Lagos",
+    'Tabla'[COD_REGION] = 11, "Aysén",
+    'Tabla'[COD_REGION] = 12, "Magallanes",
+    'Tabla'[COD_REGION] = 13, "Región Metropolitana",
+    'Tabla'[COD_REGION] = 14, "Los Ríos",
+    'Tabla'[COD_REGION] = 15, "Arica y Parinacota",
+    'Tabla'[COD_REGION] = 16, "Ñuble"
+)
+
+
+Esto permitió:
+
+Visualizar los gráficos por nombre de región en lugar de números.
+
+Facilitar la lectura y comprensión de los datos por los evaluadores.
+
 ---
 
 ## Herramientas Utilizadas
